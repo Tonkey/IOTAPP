@@ -46,7 +46,6 @@ export default class HomeScreen extends Component {
         fetch('http://192.168.4.1:80/')
             .then((response) => {
                 if (response.ok) {
-                    console.log(response.status)
                     return response.json()
                 }
                 console.log('Network Response was not good')
@@ -70,8 +69,6 @@ export default class HomeScreen extends Component {
     }
 
     sendData(newPlant) {
-        console.log('retry count: ' + this.state.retryCount)
-        console.log('sending:' + newPlant.name + ' | ' + newPlant.moisture)
         this.setState({ isSending: true })
         let fetchString = 'http://192.168.4.1:80/data?minMoistureLevel=' + newPlant.moisture + '&waterTime=' + newPlant.waterAmount + '&plantName=' + newPlant.name
         fetch(fetchString)
