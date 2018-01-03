@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Text, View, StyleSheet, TouchableOpacity } from 'react-native'
+import style from './styles'
 
 export default class TimeoutComponent extends Component {
     constructor(props) {
@@ -10,27 +11,27 @@ export default class TimeoutComponent extends Component {
     render() {
         if (this.props.state == 'FETCH') {
             return (
-                <View style={styles.container}>
-                    <Text style={styles.title}>{this.props.errText}</Text>
-                    <Text style={styles.text}>Check that you are connected to the module, and try again!</Text>
-                    <TouchableOpacity style={styles.button} onPress={() => this.handleClick()}>
-                        <Text style={styles.buttonText}> Update </Text>
+                <View style={style.container}>
+                    <Text style={style.title}>{this.props.errText}</Text>
+                    <Text style={style.text}>Check that you are connected to the module, and try again!</Text>
+                    <TouchableOpacity style={style.button} onPress={() => this.handleClick()}>
+                        <Text style={style.buttonText}> Update </Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.button} onPress={() => this.props.return()}>
-                        <Text style={styles.buttonText}> Return to plant list </Text>
+                    <TouchableOpacity style={style.button} onPress={() => this.props.return()}>
+                        <Text style={style.buttonText}> Return to plant list </Text>
                     </TouchableOpacity>
                 </View>
             )
         } else if (this.props.state == 'SEND') {
             return (
-                <View style={styles.container}>
-                    <Text style={styles.title}>{this.props.errText}</Text>
-                    <Text style={styles.text}>Check that you are connected to the module, and try again!</Text>
-                    <TouchableOpacity style={styles.button} onPress={() => this.handleClick(this.props.retryWith)}>
-                        <Text style={styles.buttonText}> Try sending again </Text>
+                <View style={style.container}>
+                    <Text style={style.title}>{this.props.errText}</Text>
+                    <Text style={style.text}>Check that you are connected to the module, and try again!</Text>
+                    <TouchableOpacity style={style.button} onPress={() => this.handleClick(this.props.retryWith)}>
+                        <Text style={style.buttonText}> Try sending again </Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.button} onPress={() => this.props.return()}>
-                        <Text style={styles.buttonText}> Return to plant list </Text>
+                    <TouchableOpacity style={style.button} onPress={() => this.props.return()}>
+                        <Text style={style.buttonText}> Return to plant list </Text>
                     </TouchableOpacity>
                 </View>
             )

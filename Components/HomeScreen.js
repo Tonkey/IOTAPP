@@ -6,6 +6,7 @@ import FetchComponent from './FetchComponent'
 import SendComponent from './SendComponent'
 import TimeoutComponent from './TimeoutComponent'
 import ScrollListComponent from './ScrollListComponent'
+import style from './styles'
 
 export default class HomeScreen extends Component {
     constructor(props) {
@@ -113,7 +114,7 @@ export default class HomeScreen extends Component {
                 doRender = <FetchComponent retries={this.state.retryCount} />
                 break;
             case this.state.isSending:
-                doRender = <SendComponent retries={this.state.retryCount}/>
+                doRender = <SendComponent retries={this.state.retryCount} />
                 break;
             case this.state.fetchTimeout:
                 doRender = <TimeoutComponent handleClick={this.fetchInitData} errText={this.state.response} state={'FETCH'} return={this.returnToList} />
@@ -126,7 +127,7 @@ export default class HomeScreen extends Component {
                 break;
         }
         return (
-            <View style={{ flex: 1 }}>
+            <View style={style.homeContainer}>
                 {doRender}
             </View>
         )

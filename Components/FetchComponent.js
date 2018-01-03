@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Text, View, ActivityIndicator, StyleSheet } from 'react-native'
+import style from './styles'
 
 export default class FetchComponent extends Component {
     constructor(props) {
@@ -9,10 +10,10 @@ export default class FetchComponent extends Component {
 
     render() {
         return (
-            <View style={styles.container}>
-                <Text style={styles.text}>Please wait while we retrieve your data!</Text>
-                <ActivityIndicator style={styles.indicator} size={100} color="#0000ff" />
-                <Text style={styles.text}>{this.props.retries}</Text>
+            <View style={style.container}>
+                <Text style={style.text}>Please wait while we retrieve your data!</Text>
+                <ActivityIndicator style={style.indicator} size={100} color="#0000ff" />
+                <Text style={style.text}>{this.props.retries}</Text>
             </View>
         )
     }
