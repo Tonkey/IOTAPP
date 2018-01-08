@@ -33,12 +33,18 @@ export default class HomeScreen extends Component {
             isSending: false,
             retryWith: null,
             response: 'Version: 2.3.0',
-            retryCount: 0
+            retryCount: 0,
         }
         this.fetchInitData = this.fetchInitData.bind(this)
         this.updatePlantChosen = this.updatePlantChosen.bind(this)
         this.sendData = this.sendData.bind(this)
         this.returnToList = this.returnToList.bind(this)
+        this.waterTimeCalc = this.waterTimeCalc.bind(this)
+    }
+
+    waterTimeCalc(waterAmount){
+        var temp = waterAmount / 5
+        return temp * 1000;
     }
 
     fetchInitData() {
@@ -70,8 +76,10 @@ export default class HomeScreen extends Component {
     }
 
     sendData(newPlant) {
+        let waterTime=this.waterTimeCalc(newPlant.waterAmount)
+        console.log(waterTime)
         this.setState({ isSending: true })
-        let fetchString = 'http://192.168.4.1:80/data?minMoistureLevel=' + newPlant.moisture + '&waterTime=' + newPlant.waterAmount + '&plantName=' + newPlant.name
+        let fetchString = 'http://192.168.4.1:80/data?minMoistureLevel=' + newPlant.moisture + '&waterTime=' + waterTime + '&plantName=' + newPlant.name
         fetch(fetchString)
             .then((response) => {
                 if (response.ok) {
