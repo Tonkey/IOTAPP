@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import { Text, View, StyleSheet, ActivityIndicator } from 'react-native'
+import { Text, View, StyleSheet, ActivityIndicator, Platform } from 'react-native'
 import style from './styles'
+import PlantComponent from './PlantComponent';
 
 export default class SendComponent extends Component {
     constructor(props) {
@@ -12,7 +13,7 @@ export default class SendComponent extends Component {
         return (
             <View style={style.container}>
                 <Text style={style.text}>Please wait while we send your data!</Text>
-                <ActivityIndicator style={style.indicator} size={100} color="#00ff00" />
+                <ActivityIndicator style={style.indicator} size={PlantComponent.OS === 'ios' ? 'large' : 100} color="#00ff00" />
                 <Text style={style.text}>{this.props.retries}</Text>
             </View>
         )

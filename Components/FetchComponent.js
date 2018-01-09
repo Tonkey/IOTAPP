@@ -12,7 +12,7 @@ export default class FetchComponent extends Component {
         return (
             <View style={style.container}>
                 <Text style={style.text}>Please wait while we retrieve your data!</Text>
-                <ActivityIndicator style={style.indicator} size={100} color="#0000ff" />
+                <ActivityIndicator style={style.indicator} size={PlantComponent.OS === 'ios' ? 'large' : 100} color="#0000ff" />
                 <Text style={style.text}>{this.props.retries}</Text>
             </View>
         )
